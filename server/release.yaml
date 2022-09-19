@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: jomitdemo
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox
+  namespace: jomitdemo
+spec:
+  containers:
+  - image: busybox
+    command:
+      - sleep
+      - "3600"
+    imagePullPolicy: IfNotPresent
+    name: busybox
+  restartPolicy: Never
